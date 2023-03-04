@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>places</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of places" [href]="['/home']">
+      <ion-avatar slot="start">
+        <ion-img [src]="item.imageURL"></ion-img>
+      </ion-avatar>
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+</ion-content>
