@@ -6,11 +6,17 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of places" [href]="['/home']">
+    <ion-item *ngFor="let item of places" [routerLink]="['/places', item.id]">
       <ion-avatar slot="start">
         <ion-img [src]="item.imageURL"></ion-img>
       </ion-avatar>
       {{item.title}}
     </ion-item>
   </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addNav()"  type="button" >
+    <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

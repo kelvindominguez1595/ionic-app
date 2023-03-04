@@ -1,6 +1,6 @@
 export interface Place {
-    id: string;
+    id: number;
     title: string;
     imageURL: string;
-    comments: string[]
+    comments: string[];
 }

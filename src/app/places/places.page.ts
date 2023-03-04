@@ -1,4 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Place } from './place.model';
+
+import { PlacesService } from './places.service';
 
 @Component({
   selector: 'app-places',
@@ -7,14 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesPage implements OnInit {
 
-  places = [
-    { id: 1, title: 'Superman Heroe', imageURL: 'https://picsum.photos/100/100', comments: ['Place 1', 'Place 2'] },
-    { id: 2, title: 'Batman Heroe', imageURL: 'https://picsum.photos/100/100', comments: ['Place 1', 'Place 2'] },
-  ];
-
-  constructor() { }
+  places:Place[] = [];
+  constructor(private placesServices: PlacesService, private router: Router) { }
 
   ngOnInit() {
+    this.places = this.placesServices.getPlaces();
+  }
+
+  addNav(){
+    this.router.navigate(['/new-place']);
   }
 
 }
